@@ -13,18 +13,21 @@ public class TestMD5 {
 	@Test
 	public void test() {
 		boolean isComplete = true;
-		byte[] message = "hola".getBytes(), messageOrigin = null, messageNew = null;
+		byte[] message = "hola".getBytes(), 
+				messageEncode = null,
+				newMessageEncode = null;
+		
 		Encode<byte[]> encryptMD5 = new EncodeMD5();
 		Optional<byte[]> messageEncodeOrigin = encryptMD5.encode(message);
 
 		
 		if(messageEncodeOrigin.isPresent())
-			messageOrigin = messageEncodeOrigin.get();
+			messageEncode = messageEncodeOrigin.get();
 			for (int i = 0; i < 10; i++) {
 				Optional<byte[]> messageEncodeNew = encryptMD5.encode(message);
 				if(messageEncodeNew.isPresent()){
-					messageNew = messageEncodeOrigin.get();
-					if(!messageNew.equals(messageOrigin)){
+					newMessageEncode = messageEncodeOrigin.get();
+					if(!newMessageEncode.equals(messageEncode)){
 						isComplete = false;
 						break;
 					}
