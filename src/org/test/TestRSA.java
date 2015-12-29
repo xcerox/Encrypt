@@ -29,8 +29,8 @@ public class TestRSA {
 				byte[] decode = messageDecode.get();
 				if(message.equals(new String(decode))){
 					String privateKeyBase64 = Base64.getEncoder().encodeToString(keys.getPrivate().getEncoded());
-					byte[] privateKeyDecode = Base64.getDecoder().decode(privateKeyBase64.getBytes());
-					PrivateKey newPrivateKey = new LoadPrivateKey().loadKey(privateKeyDecode);
+					byte[] privateKeyDecodeBase64 = Base64.getDecoder().decode(privateKeyBase64.getBytes());
+					PrivateKey newPrivateKey = new LoadPrivateKey().loadKey(privateKeyDecodeBase64);
 					encodeRSA.setKeyDecrypt(newPrivateKey);
 					Optional<byte[]> newMessageDecode = encodeRSA.decode(encode);
 					if(newMessageDecode.isPresent()){
