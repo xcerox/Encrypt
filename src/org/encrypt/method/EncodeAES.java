@@ -1,5 +1,11 @@
 package org.encrypt.method;
 
+/**
+ * Clase apra encriptacion sincrona con AES
+ * @author j.reyes
+ * @version 1.0
+ */
+
 import java.security.Key;
 import java.util.Optional;
 
@@ -12,22 +18,44 @@ public class EncodeAES implements Encode<byte[]>, Decode<byte[]>{
 	private final String algorithm = "AES/ECB/PKCS5Padding";
 	private Key key;
 	
+	/**
+	 * Metodo que se encarga de asignar la llave que se usara para cifrar y descifrar.
+	 * @param key Llave para cifrar y descifrar.
+	 */
 	public void setKey(Key key){
 		this.key = key;
 	}
 	
+	/**
+	 * Metodo para cifrar. 
+	 * @param message Arreglo de bytes del mensaje a cifrar.
+	 * @return A.rreglo de bytes del mensaje cifrado.
+	 * @throws Exception
+	 */
 	private byte[] encrypt(byte[] message) throws Exception{
 		Cipher encryptor = Cipher.getInstance(algorithm);
 		encryptor.init(Cipher.ENCRYPT_MODE, key);
 		return encryptor.doFinal(message);
 	}
 	
+	/**
+	 * Metodo para descifrar.
+	 * @param message Arreglo de bytes del mensaje cifrado.
+	 * @return Arreglo de bytes del mensaje descifrado.
+	 * @throws Exception
+	 */
 	private byte[] descrypt(byte[] message) throws Exception{
 		Cipher descyptor = Cipher.getInstance(algorithm);
 		descyptor.init(Cipher.DECRYPT_MODE, key);
 		return descyptor.doFinal(message);
 	}
-
+	
+	/**
+	 * Metodo implementado.
+	 * @see Decode
+	 * @return Optional con arreglo de bytes del mensaje descifrado.
+	 * @throws RuntimeException 
+	 */
 	@Override
 	public Optional<byte[]> decode(byte[] message) throws RuntimeException {
 		try{
@@ -37,6 +65,12 @@ public class EncodeAES implements Encode<byte[]>, Decode<byte[]>{
 		}
 	}
 
+	/**
+	 * Metodo implementado.
+	 * @see Encode 
+	 * @return Optional con conjunto de bytes del mensaje cifrado.
+	 * @throws RuntimeException
+	 */
 	@Override
 	public Optional<byte[]> encode(byte[] message) throws RuntimeException {
 		try {

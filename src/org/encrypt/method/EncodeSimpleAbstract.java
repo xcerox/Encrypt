@@ -16,16 +16,16 @@ public abstract class EncodeSimpleAbstract implements Encode<byte[]> {
 	
 	/**
 	 * Contructor de la clase abstracta para definir el tipo de encriptacion.
-	 * @param method parametro para asignar tipo de encriptacion desde las clases hijas.
+	 * @param method Parametro para asignar tipo de encriptacion desde las clases hijas.
 	 */
 	public EncodeSimpleAbstract(String method) {
 		this.method = method;
 	}
 	
 	/**
-	 * Metodo para encriptar base.
-	 * @param message parametro que contiene el mensaje a encriptar
-	 * @return arreglo bytes del mensaje encriptado.
+	 * Metodo para cifrar base.
+	 * @param message Arreglo de bytes del mensaje a cifrar.
+	 * @return Arreglo de bytes del mensaje cifrado.
 	 * @throws Exception
 	 */
 	private byte[] encryptor(byte[] message) throws Exception{
@@ -34,9 +34,9 @@ public abstract class EncodeSimpleAbstract implements Encode<byte[]> {
 	}
 
 	/**
-	 * Metodo de encriptacion 
-	 * @param message parametro que contiene el mensaje a encriptar.
-	 * @return Optional con el arreglo bytes del mensaje encriptado.
+	 * Metodo implementado.
+	 * @see Encode
+	 * @return Optional con arreglo de bytes del mensaje cifrado.
 	 * @throws RuntimeException
 	 */
 	@Override
