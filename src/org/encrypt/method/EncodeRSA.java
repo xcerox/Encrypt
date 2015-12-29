@@ -23,16 +23,16 @@ public class EncodeRSA implements Encode<byte[]>, Decode<byte[]>{
 		this.publicKey = publicKey;
 	}
 	
-	private byte[] decryptor(byte[] content) throws Exception {
+	private byte[] decryptor(byte[] message) throws Exception {
 		Cipher cipher = Cipher.getInstance(algorithm);
 		cipher.init(Cipher.DECRYPT_MODE, privateKey);
-		return cipher.doFinal(content);
+		return cipher.doFinal(message);
 	}
 
-	private byte[] encryptor(byte[] content) throws Exception {
+	private byte[] encryptor(byte[] message) throws Exception {
 		Cipher cipher = Cipher.getInstance(algorithm);
 		cipher.init(Cipher.ENCRYPT_MODE, publicKey, new SecureRandom());
-		return cipher.doFinal(content);
+		return cipher.doFinal(message);
 	}
 
 	@Override
