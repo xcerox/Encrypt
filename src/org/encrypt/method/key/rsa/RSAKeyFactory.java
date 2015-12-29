@@ -10,9 +10,6 @@ import org.encrypt.interfaces.KeyGenerator;
 import org.encrypt.util.MethodEncode;
 
 public class RSAKeyFactory implements KeyGenerator<KeyPair> {
-
-	private PrivateKey privateKey;
-	private PublicKey publicKey;
 	private int keyZise = 1024;
 	
 	public void setKeyZise(int keyZise){
@@ -24,11 +21,8 @@ public class RSAKeyFactory implements KeyGenerator<KeyPair> {
 		try{
 			KeyPairGenerator keyGenerator = KeyPairGenerator.getInstance(MethodEncode.RSA);
 			keyGenerator.initialize(keyZise, new SecureRandom());
-			KeyPair oldkeys = keyGenerator.generateKeyPair();
-			
-			publicKey = new LoadPublicKey().loadKey(oldkeys.getPublic().getEncoded());
-			privateKey = new LoadPrivateKey().loadKey(oldkeys.getPrivate().getEncoded());
-			return new KeyPair(publicKey, privateKey);
+			KeyPair keys = keyGenerator.generateKeyPair();
+			return  keys;
 		}catch(Exception exception){
 			throw new RuntimeException(exception);
 		}
