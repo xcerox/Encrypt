@@ -1,5 +1,11 @@
 package org.encrypt.method;
 
+/**
+ * Clase para encriptar Asimetrico con RSA 
+ * @author j.reyes
+ * @version 1.0
+ */
+
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
