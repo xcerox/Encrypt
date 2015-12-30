@@ -1,6 +1,8 @@
 # Encrypt
 Libreria para cifrar utilizando diferentes métodos.
 
+	Creada con Eclipse Luna 4.4.2, Java 8, JUnit 4.
+
 **Ejemplo de Encriptación con MD5.**
 ```java
 		String message = "Hola";
@@ -109,4 +111,3 @@ Libreria para cifrar utilizando diferentes métodos.
 ```
 	Mensaje codificado: jzdRpSDyNeMaDzOD/4LFh//dZmAFcPe9AQZkdHhPckjg0nuWUmJpHTUv5ea2M3svVIDaSkmF2X2sB1+WHufnyuIITHTZx10JsjSbAie0NERp2YRRQv5tnX9dfe7x7bzUGyRKB8ns+FbFAqfzj+F08/QDo+DqrdjrBumn2RhkaXc=
 	Mensaje decodificado: Hola
-Creada con Eclipse Luna 4.4.2, Java 8, JUnit 4.
