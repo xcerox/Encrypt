@@ -36,8 +36,6 @@ public abstract class EncodeSimpleAbstract implements Encode<byte[]> {
 	/**
 	 * Metodo implementado.
 	 * @see Encode
-	 * @return Optional con arreglo de bytes del mensaje cifrado.
-	 * @throws RuntimeException
 	 */
 	@Override
 	public Optional<byte[]> encode(byte[] message) throws RuntimeException{

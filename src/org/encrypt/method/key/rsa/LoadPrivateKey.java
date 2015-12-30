@@ -10,6 +10,10 @@ import org.encrypt.util.MethodEncode;
 
 public class LoadPrivateKey implements LoadKey<Key, byte[]> {
 
+	/**
+	 * Metodo implementado.
+	 * @see LoadKey
+	 */
 	@Override
 	public PrivateKey loadKey(byte[] origen) throws RuntimeException {
 		try{

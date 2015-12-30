@@ -8,10 +8,18 @@ import org.encrypt.util.MethodEncode;
 public class AESKeyFactory implements KeyGenerator<Key> {
 	private int keyZise = 128;
 	
+	/**
+	 * Metodo para asignar tamaño de la llave.
+	 * @param keyZise tamaño de la llave.
+	 */
 	public void setKeyZise(int keyZise){
 		this.keyZise = keyZise;
 	}
 	
+	/**
+	 * Metodo implementado
+	 * @see KeyGenerator
+	 */
 	@Override
 	public Key create() throws RuntimeException {
 		try{

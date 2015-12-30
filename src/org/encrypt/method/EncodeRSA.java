@@ -15,26 +15,50 @@ public class EncodeRSA implements Encode<byte[]>, Decode<byte[]>{
 	private PrivateKey privateKey;
 	private PublicKey publicKey;
 
+	/**
+	 * Metodo para asinar llave para descifrar.
+	 * @param privateKey llave para descifrar.
+	 */
 	public void setKeyDecrypt(PrivateKey privateKey){
 		this.privateKey = privateKey;
 	}
 	
+	/**
+	 * Metodo para asignar llave para cifrar.
+	 * @param publicKey llave para cifrar.
+	 */
 	public void setKeyEncrypt(PublicKey publicKey){
 		this.publicKey = publicKey;
 	}
 	
+	/**
+	 * Metodo para descifrar.
+	 * @param message Arreglo de bytes del mensaje a descifrar.
+	 * @return Arreglo de bytes del mensaje descifrado.
+	 * @throws Exception
+	 */
 	private byte[] decryptor(byte[] message) throws Exception {
 		Cipher cipher = Cipher.getInstance(algorithm);
 		cipher.init(Cipher.DECRYPT_MODE, privateKey);
 		return cipher.doFinal(message);
 	}
 
+	/**
+	 * Metodo para cifrar.
+	 * @param message Arreglo de bytes del mensaje a cifrar.
+	 * @return Arreglo de bytes del mensaje cifrado.
+	 * @throws Exception
+	 */
 	private byte[] encryptor(byte[] message) throws Exception {
 		Cipher cipher = Cipher.getInstance(algorithm);
 		cipher.init(Cipher.ENCRYPT_MODE, publicKey, new SecureRandom());
 		return cipher.doFinal(message);
 	}
 
+	/**
+	 * Metodo implementado.
+	 * @see Encode
+	 */
 	@Override
 	public Optional<byte[]> encode(byte[] message) throws RuntimeException {
 		try{
@@ -44,6 +68,10 @@ public class EncodeRSA implements Encode<byte[]>, Decode<byte[]>{
 		}
 	}
 
+	/**
+	 * Metodo implementado.
+	 * @see Decode
+	 */
 	@Override
 	public Optional<byte[]> decode(byte[] message) throws RuntimeException {
 		try{

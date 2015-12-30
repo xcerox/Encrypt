@@ -9,6 +9,11 @@ import org.encrypt.interfaces.LoadKey;
 import org.encrypt.util.MethodEncode;
 
 public class LoadPublicKey implements LoadKey<Key, byte[]> {
+	
+	/**
+	 * Metodo implementado
+	 * @see LoadKey
+	 */
 	@Override
 	public PublicKey loadKey(byte[] origen) throws RuntimeException {
 		try {

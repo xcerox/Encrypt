@@ -9,6 +9,10 @@ import org.encrypt.util.MethodEncode;
 
 public class LoadUniqueKey implements LoadKey<Key, byte[]> {
 
+	/**
+	 * Metodo implementado
+	 * @see LoadKey
+	 */
 	@Override
 	public Key loadKey(byte[] origen) throws RuntimeException {
 		return new SecretKeySpec(origen, MethodEncode.AES);

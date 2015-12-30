@@ -29,7 +29,7 @@ public class EncodeAES implements Encode<byte[]>, Decode<byte[]>{
 	/**
 	 * Metodo para cifrar. 
 	 * @param message Arreglo de bytes del mensaje a cifrar.
-	 * @return A.rreglo de bytes del mensaje cifrado.
+	 * @return Arreglo de bytes del mensaje cifrado.
 	 * @throws Exception
 	 */
 	private byte[] encrypt(byte[] message) throws Exception{
@@ -53,8 +53,6 @@ public class EncodeAES implements Encode<byte[]>, Decode<byte[]>{
 	/**
 	 * Metodo implementado.
 	 * @see Decode
-	 * @return Optional con arreglo de bytes del mensaje descifrado.
-	 * @throws RuntimeException 
 	 */
 	@Override
 	public Optional<byte[]> decode(byte[] message) throws RuntimeException {
@@ -68,8 +66,6 @@ public class EncodeAES implements Encode<byte[]>, Decode<byte[]>{
 	/**
 	 * Metodo implementado.
 	 * @see Encode 
-	 * @return Optional con conjunto de bytes del mensaje cifrado.
-	 * @throws RuntimeException
 	 */
 	@Override
 	public Optional<byte[]> encode(byte[] message) throws RuntimeException {
