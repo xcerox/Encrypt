@@ -1,7 +1,7 @@
 package org.encrypt.method;
 
 /**
- * Clase apra encriptacion sincrona con AES
+ * Clase para encriptar Simetrico con AES 
  * @author j.reyes
  * @version 1.0
  */
