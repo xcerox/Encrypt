@@ -85,4 +85,28 @@ Libreria para cifrar utilizando diferentes métodos.
 ```
 	Mensaje codificado: <K†ÁíÂ‡ëÑ;…ôèÞ
 	Mensaje decodificado: Hola
+
+**Ejemplo de Encriptación con RSA encriptacion Asimetrica**	
+```java    
+		String message = "Hola";
+		EncodeRSA cipher = new EncodeRSA();
+		KeyPair keys = new RSAKeyFactory().create();
+		
+		cipher.setKeyEncrypt(keys.getPublic());
+		Optional<byte[]> meesageEncode = cipher.encode(message.getBytes());
+		if(meesageEncode.isPresent()){
+			//se codifica en base64 para mantener todos sus bytes intactos. 
+			String resultEncode = Base64.getEncoder().encodeToString(meesageEncode.get());
+			System.out.println("Mensaje codificado: " + resultEncode);
+			
+			cipher.setKeyDecrypt(keys.getPrivate());
+			Optional<byte[]> messageDecode = cipher.decode(Base64.getDecoder().decode(resultEncode.getBytes()));
+			if(messageDecode.isPresent()){
+				String resultDecode = new String(messageDecode.get());
+				System.out.println("Mensaje decodificado: " + resultDecode);
+			}
+		}
+```
+	Mensaje codificado: jzdRpSDyNeMaDzOD/4LFh//dZmAFcPe9AQZkdHhPckjg0nuWUmJpHTUv5ea2M3svVIDaSkmF2X2sB1+WHufnyuIITHTZx10JsjSbAie0NERp2YRRQv5tnX9dfe7x7bzUGyRKB8ns+FbFAqfzj+F08/QDo+DqrdjrBumn2RhkaXc=
+	Mensaje decodificado: Hola
 Creada con Eclipse Luna 4.4.2, Java 8, JUnit 4.
