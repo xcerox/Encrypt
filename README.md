@@ -61,4 +61,28 @@ Libreria para cifrar utilizando diferentes métodos.
 ```
 	Resultado: À–†â8×à¦Ó’œ{ oF?>k{(+¤?U?„WˆÅ
 
+**Ejemplo de Encriptación con AES encriptacion Simetrica**
+```java    
+		String message = "Hola";
+		EncodeAES cipher = new EncodeAES();
+		
+		//Creación y asignación de llave para cifrar y descifrar.
+		Key key = new AESKeyFactory().create();
+		cipher.setKey(key);
+	
+		Optional<byte[]> meesageEncode = cipher.encode(message.getBytes());
+		if(meesageEncode.isPresent()){
+			String resultEncode = new String(meesageEncode.get());
+			System.out.println("Mensaje codificado: " + resultEncode);
+		
+			Optional<byte[]> messageDecode = cipher.decode(resultEncode.getBytes());
+			if(messageDecode.isPresent()){
+				String resultDecode = new String(messageDecode.get());
+				System.out.println("Mensaje decodificado: " + resultDecode);
+			}
+			
+		}
+```
+	Mensaje codificado: <K†ÁíÂ‡ëÑ;…ôèÞ
+	Mensaje decodificado: Hola
 Creada con Eclipse Luna 4.4.2, Java 8, JUnit 4.
